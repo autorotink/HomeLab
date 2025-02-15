@@ -88,10 +88,18 @@ MyDFIR is having us look at the SHA256 Checksums to verify that the download fil
  - We have now verified that the downloaded file has not been changed from the vendor's website (HUZZAH!).
 Time to run the VirtualBox application and see if the dependency issues comes up during the install...wait...NOW is the time to do the thing with Python!
 
-
-
- 
 #### Windows Demo
+- 🐿️ I've used images of VMs before for labs, etc. (thank you, SANS and AntiSyphon!).  It'll be cool to see how to do it another way!
+- You'll need a valid license to install Windows.
+- Go to: [Microsoft Software Download/Windows10](https://www.microsoft.com/en-ca/software-download/windows10) > Create Windows 10 Installation Media > "Download Now".
+- This download is a Media Creation Tool that will help to generate a Windows ISO image file.
+ - 🐿️ An ISO image file is like a virtual copy of a physical disc.  The name comes from the ISO 9660 file system used in CD-ROM media.
+- Open the file > "Yes" > "Accept" > "Create installation media (USB flash drive, DVD, or ISO file) for another PC" > "Next"
+- Can change the language, architecture and edition. I'm just going to use the default. > "Next"
+- Choose which media to use > "ISO file" > "Next" > Save to a prefered file location.  It will start downloading...which will take a minute or two (a great time to get coffee! ☕)
+- 
+- 
+
 #### Kali Demo
 #### Things to be aware of
 
