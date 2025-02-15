@@ -14,8 +14,8 @@ To build a functional home lab environment that demonstrates foundational skills
 [Bullet Points - Remove this afterwards]
 
 - Download the hypervisor VirtualBox to host Virtual Machines. 
-- Download Windows10 and Kali to use as VMs within VirtualBox.
-- Ability to generate and recognize attack signatures and patterns.
+- Download and install Windows10 and Kali as VMs within VirtualBox.
+- Download 7-Zip in order to extract Kali file.
 - Enhanced knowledge of network protocols and security vulnerabilities.
 - Development of critical thinking and problem-solving skills in cybersecurity.
 
@@ -138,9 +138,17 @@ We are now installing the OS in the VM.
 ##### Power On!  Setting up Kali in the VM
 Select the green "Start" arrow.  You can also right click on the machine name in the left panel and select the same green "Start" arrow (helpful if you have multiple VMs you're managing).
 - The login credentials for the Kali machine is kali/kali.
+#### Voila!
+🐿️ Here's about what the two machines should look like!  Maybe it's small potatoes to seasoned folks...but this is pretty amazing!
 ![image](https://github.com/user-attachments/assets/9bd21868-c4c1-45d7-b89d-23e29b684890)
-Here's about what the two machines should look like!  Maybe it's small potatoes to seasoned folks...but this is pretty amazing!
-
 
 #### Things to be aware of
-
+1. Sandbox Environment: You have to make sure you have your configurations for your VMs done correctly.  Don't download malware from the internet to your VM, because if it isn't properly configured, your "Host is Toast"!  You can craft your own malware in Kali, and attack your own windows machine to see what IOCs may be evident.  You control the malware, so you can have a better understanding of what you should be seeing as well!
+2.  Snapshots: Take them before you break the machine!  If you're testing something, you want a machine you can revert to.
+  - Way 1: In the VM, go to Machine > Take Snapshot.  Name it something somewhat memorable in case you need to go back to different versions!
+![image](https://github.com/user-attachments/assets/cc294346-ddf8-40ad-88ea-497542b0551a)
+  - Way 2: In the left panel select the list next to the machine name > Snapshot > a new screen will open > Take
+  - Your snapshots will be listed, in case you need to revert back!  You select the snapshot
+![image](https://github.com/user-attachments/assets/799b68a7-151b-45d2-8053-6ddc68ac24d3)
+3. Don't overspec your machine.  This is where my primer comes in!  Check out my attached file concerning how to check out what a host machine can handle!
+[Host Machine Capacity.txt](https://github.com/user-attachments/files/18812592/Host.Machine.Capacity.txt)
