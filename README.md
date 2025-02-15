@@ -13,8 +13,8 @@ To build a functional home lab environment that demonstrates foundational skills
 ### Skills Learned
 [Bullet Points - Remove this afterwards]
 
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
+- Download the hypervisor VirtualBox to host Virtual Machines. 
+- Download Windows10 and Kali to use as VMs within VirtualBox.
 - Ability to generate and recognize attack signatures and patterns.
 - Enhanced knowledge of network protocols and security vulnerabilities.
 - Development of critical thinking and problem-solving skills in cybersecurity.
@@ -89,17 +89,58 @@ MyDFIR is having us look at the SHA256 Checksums to verify that the download fil
 Time to run the VirtualBox application and see if the dependency issues comes up during the install...wait...NOW is the time to do the thing with Python!
 
 #### Windows Demo
-- 🐿️ I've used images of VMs before for labs, etc. (thank you, SANS and AntiSyphon!).  It'll be cool to see how to do it another way!
-- You'll need a valid license to install Windows.
+🐿️ I've used images of VMs before for labs, etc. (thank you, SANS and AntiSyphon!).  It'll be cool to see how to do it another way!
+You'll need a valid license to install Windows.
+##### Windows Installation and Setup
 - Go to: [Microsoft Software Download/Windows10](https://www.microsoft.com/en-ca/software-download/windows10) > Create Windows 10 Installation Media > "Download Now".
-- This download is a Media Creation Tool that will help to generate a Windows ISO image file.
- - 🐿️ An ISO image file is like a virtual copy of a physical disc.  The name comes from the ISO 9660 file system used in CD-ROM media.
+This download is a Media Creation Tool that will help to generate a Windows ISO image file.
+🐿️ An ISO image file is like a virtual copy of a physical disc.  The name comes from the ISO 9660 file system used in CD-ROM media.
 - Open the file > "Yes" > "Accept" > "Create installation media (USB flash drive, DVD, or ISO file) for another PC" > "Next"
 - Can change the language, architecture and edition. I'm just going to use the default. > "Next"
 - Choose which media to use > "ISO file" > "Next" > Save to a prefered file location.  It will start downloading...which will take a minute or two (a great time to get coffee! ☕)
-- 
-- 
+- After the file is downloaded, open VirtualBox > "New" 
+  - Name: whatever you prefer
+  - Folder: Default
+  - ISO Image > select dropdown > "other" > navigate to the ISO image downloaded earlier and double-click
+  - Select "Skip Unattended Installation" to install manually install the operating system.
+ ![InstallVMWin1](https://github.com/user-attachments/assets/110df5eb-c4e2-4328-8f54-2f79ceda4242)
+🐿️ I'm just going to follow what MyDFIR does.  I did a bit of a Q&A with Copilot about Host Machine Capability.
+  - Base Memory: 4GB = 4096MB
+  - 1 CPU
+  - "Next"
+  - Virtual Hard Disk, leaving at 50GB > "Next"
+  - See the Summary Page!
+ ![InstallVMWin2](https://github.com/user-attachments/assets/a1480a34-b6d8-4503-8016-588fd81ef022)
+Now that setup is done, this is what the machine should look like!
+![InstallVMWin3](https://github.com/user-attachments/assets/d8f02e21-5768-4dbf-a375-1ecfda69402f)
+🐿️ All the setup that was just completed should be able to be adjusted by selecting "Settings". (I've had to make some adjustments on a previous VM that I was troubleshooting)
 
+##### Power On! Setting Up Windows in the VM
+Select the green "Start" arrow.  You can also right click on the machine name in the left panel and select the same green "Start" arrow (helpful if you have multiple VMs you're managing).
+We are now installing the OS in the VM.  
+- Setup Options > "Next" > "Install Now" > Select "I don't have a product key" > "Windows 10 Pro" > "Next" > "I accept the license terms" (of COURSE we do!) > "Next" > "Custom: Install Windows only (advanced)" (because of COURSE we are!) > "Next" --Windows 10 is now installing in the background.
+- 🐿️ The installation is completed for my Windows machine (I named it "EllieDefends"!) I'm going to go a little on my own and finish setting up this machine before I move onto the Kali machine.  I'm keeping everything for an American keyboard, and set things up for personal use.  I'm going to go ahead and take a snapshot of the machine, as it is, and come back to it whenever we happen to get to that point in the training videos!
 #### Kali Demo
+##### Kali Installation and Setup
+🐿️ I already installed Kali before, but it was for VMWare.  There's a separate image for VirtualBox.
+- Go to: [Kali Virtual Machines](https://www.kali.org/get-kali/#kali-virtual-machines) to download the pre-built virtual machine > Select the first VirtualBox option's download arrow (great time to get another coffee! ☕).
+  ![image](https://github.com/user-attachments/assets/26604ffd-4cf0-4192-b1f2-554227ad4463)
+   - While that's downloading, go to: [7-Zip](https://7-zip.org) to download the 7-Zip application to be able to extract the Kali files.
+   - ![image](https://github.com/user-attachments/assets/a69d5435-0442-4e6e-a551-91cca842c03b)
+🐿️ I actually completed this step when I downloaded AntiSyphon's VM! (Huzzah!) You can tell that the Kali file requires the 7-Zip application by looking at the file extension (`.7z`). 7-Zip can alos handle `.zip`, `.rar`, and `.tar.gz`.  
+- Go to the Downloads folder > Right-Click the zipped Kali-linux file and extract the file with 7-Zip to extract to the directory.  
+- 🐿️ For some reason, I didn't get the 7-Zip option, so I had to open 7-Zip > Right Click the Kali file > Hover over 7-Zip > Extract to "kali-linux...PATH"
+  ![InstallKali1](https://github.com/user-attachments/assets/3c4be535-8c83-43da-9daf-2997db346b6d)
+- If you can't see the file extensions, go to your file explorer, select go to "View" > "Show" > "File name extensions".
+![image](https://github.com/user-attachments/assets/072d5524-0c32-45c9-868a-6548193c90b4)
+- 🐿️ After the extraction was completed, I remained in 7-Zip and opened the kali-linux file and then double-clicked the kali-linux option the the `vbox` file extension.
+- The Kali machine should auto-magically open in VirtualBox!
+##### Power On!  Setting up Kali in the VM
+Select the green "Start" arrow.  You can also right click on the machine name in the left panel and select the same green "Start" arrow (helpful if you have multiple VMs you're managing).
+- The login credentials for the Kali machine is kali/kali.
+![image](https://github.com/user-attachments/assets/9bd21868-c4c1-45d7-b89d-23e29b684890)
+Here's about what the two machines should look like!  Maybe it's small potatoes to seasoned folks...but this is pretty amazing!
+
+
 #### Things to be aware of
 
