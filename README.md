@@ -27,7 +27,7 @@ To build a functional home lab environment that demonstrates foundational skills
 - Telemetry generation tools to create realistic network traffic and attack scenarios.
 
 ## Steps
-### [Build a Basic Home Lab (1/3)](https://www.youtube.com/watch?v=kku0fVfksrk&list=PLG6KGSNK4PuBWmX9NykU0wnWamjxdKhDJ&index=1&t=18s)
+### [Build a Basic Home Lab (1/3)](https://www.youtube.com/watch?v=kku0fVfksrk&t=30s)
 #### Introduction
 A home lab is used as an environment to test new tools and learn new techniques. 
 - 🐿️ I have some experience with this from previous work, where there's the production environment (where everything really happens), and the development environment where our engineers would test out new rules and configurations.  It's better to break things in a dev environment, instead of in the production environment (think the [2024 CrowdStrike-related IT outages](https://en.wikipedia.org/wiki/2024_CrowdStrike-related_IT_outages?form=MG0AV3)). 
@@ -152,3 +152,17 @@ Select the green "Start" arrow.  You can also right click on the machine name in
 ![image](https://github.com/user-attachments/assets/799b68a7-151b-45d2-8053-6ddc68ac24d3)
 3. Don't overspec your machine.  This is where my primer comes in!  Check out my attached file concerning how to check out what a host machine can handle!
 [Host Machine Capacity.txt](https://github.com/user-attachments/files/18812592/Host.Machine.Capacity.txt)
+### [Build a Basic Home Lab (2/3)](https://www.youtube.com/watch?v=5iafC6vj7kM)
+#### Intro
+#### How to Reduce Risk
+#### Virtual Box Demo
+#### Different Network Options
+#### Two Sample Scenarios
+#### Demo
+#### VMWare Demo
+### [Build a Basic Home Lab (3/3)](https://www.youtube.com/watch?v=-8X7Ay4YCoA&t=13s)
+#### Intro
+#### Disclaimer
+#### Kali Demo
+#### Windows Demo
+#### Splunk Demo
