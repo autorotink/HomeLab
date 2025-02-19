@@ -29,22 +29,65 @@ Focus on Networking!
 - Take a snapshot (maybe name it something like "Initial Toolkit")
 - And start testing out the tools.
 #### Demo: Scenario 2 - Analyze Malware and Identify Additional Indicators of Compromise
-Here's where you'll need to complete some **configurations** to stay safe.
+##### Complete Critical Configuration
 - Select the desired VM (for me, it'll be EllieDefends) > Settings > Network > Check "Enable Network Adapter" > Internal Network > name the network something like "BabyShark" > OK
 - Select the desired VM (I just renamed my attack maching KaliShark) > Settings > Network > Check "Enable Network Adapter" > Internal Network > select the network named "BabyShark" > OK
 _These machines are now in the same network._
-Now, **statically assign IPs** to each machine so they can start talking to eachother.
+##### Statically assign IPs
 - Select the **windows** machine.
 - Right-click the Globe icon in the bottom right corner > Open Network & Internet Settings > Advanced network settings - Change adapter options.
 - Right-click the Ethernet > Properties > Select Internet Protocol Version 4 (TCP/IPv4) > Properties
-- Select "Use the following IP address" > Select an IP, and keep track of it! > Everything else as a default > OK
+- Select "Use the following IP address" > Select an IP, and keep track of it! (`192.168.20.10`) > Leave everything else as a default > OK
   - Private IP Address Ranges (RFC 1918):
     - 10.0.0.0 - 10.255.255.255 (10.0.0.0/8)
     - 172.16.0.0 - 172.31.255.255 (172.16.0.0/12)
     - 192.168.0.0 - 192.168.255.255 (192.168.0.0/16)
   - Double-check your work!
-    - Go to the start menu and in the search bar, enter "cmd" > Open the command prompt > `ipconfig` > and you should see the address you just assigned!
+    - Go to the start menu and in the search bar, enter "cmd" > Open the command prompt > enter `ipconfig` > and you should see the address you just assigned!
   - Take a snapshot.
-  - Select the **kali** machine.
-  - 
+- Select the **kali** machine.
+  - Right-click the Ethernet icon in the top right corner > Edit Connections > Double-click on "Wired connection 1"
+  - IPv4 Settings > Change the Method from Automatic (DHCP) to Manual
+  - Under Addresses > Select Add > Select an IP, and keep track of it! (`192.168.60.11`) > Leave everything else as default > Save
+  - Double-check your work!
+    - Right click anywhere and select "Open Terminal Here" > enter `ifconfig` > and you should confirm the address you just assigned!
+    - Take a snapshot.
+Here's an example of what each of the machines should look like during your QC!
+![image](https://github.com/user-attachments/assets/4a70bb61-3058-4125-abc1-c8d2be28e2cd)
+##### Test the Network!
+🐿️ Oh...this is exciting!!
+- On KaliShark enter the Windows machine IP: `ping 192.168.20.10`
+![image](https://github.com/user-attachments/assets/d0c6fbc9-40b9-4d7f-a883-d5f07550a8e4)
+  - That doesn't work (yet) because the Windows Firewall is blocking inbound ICMP traffic.
+- On EllieDefends enter Kali machine IP: `ping 192.168.60.11`
+![image](https://github.com/user-attachments/assets/62dc184b-b1d4-43c7-b078-20ad54238d45)
+  - 🐿️ Ooop!  That does work! (the tutorial has it as being able to work...hmmmm...time to trouble-shoot!
+##### Troubleshooting the Network!
+🐿️ I'm totally using all my Copiloting skills! lol
+Here are some troubleshooting steps to get your Windows VM to ping your Kali Linux VM on an internal network in VirtualBox:
+1. Check Network Adapter Settings: (🐿️ I did this first thing, before diving into Copilot steps)
+- Ensure both VMs are connected to the same internal network.
+- In VirtualBox, go to the settings for each VM, then navigate to Network and make sure the network adapter is set to Internal Network and the network name is the same for both VMs.
+
+2. Disable Windows Firewall (Temporarily):
+- On your Windows VM, open Control Panel, go to System and Security, then Windows Defender Firewall.
+- Click on Turn Windows Defender Firewall on or off.
+- Select Turn off Windows Defender Firewall for both private and public networks. Note: Remember to turn it back on after testing.
+
+3. Disable Linux Firewall (Temporarily):
+- Open a terminal on your Kali Linux VM.
+- Run the command sudo ufw disable to disable the firewall. Note: Remember to turn it back on after testing using sudo ufw enable.
+
+4. Check IP Configuration: (🐿️ I did this first thing, before diving into Copilot steps)
+- On your Windows VM, open Command Prompt and run ipconfig to confirm the assigned IP address.
+- On your Kali Linux VM, open a terminal and run ifconfig (or ip a) to check the IP address.
+
+5. Ping Test:
+- On your Windows VM, open Command Prompt and run ping <Kali_IP> (replace <Kali_IP> with the IP address of your Kali Linux VM).
+  -If the ping fails, ensure both VMs have the correct IP configurations and are on the same subnet.
+
+6. Check Routing Table:
+- On your Windows VM, open Command Prompt and run route print to check the routing table. Ensure there is a route to the internal network.
+- On your Kali Linux VM, run route -n to check the routing table.
+
 #### VMWare Demo
