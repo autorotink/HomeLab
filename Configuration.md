@@ -19,7 +19,7 @@ Focus on Networking!
   - There are others, but these are the ones covered in the video.
 #### Two Sample Scenarios
 **Scenario 1: Test Tools Requiring Internet Connectivity**
-- NAT: Default setting are OK! 
+ NAT: Default setting are OK! 
 **Scenario 2: Analyze Malware and Identify Additional Indicators of Compromise**
 - Probably best to select "Not Attached".  This won't work for all malware, but this is a good beginner protocol!
 - Or, Internal Network.  This will allow the VMs to communicate with eachother, but not with the host.  
@@ -37,7 +37,7 @@ _These machines are now in the same network._
 - Select the **windows** machine.
 - Right-click the Globe icon in the bottom right corner > Open Network & Internet Settings > Advanced network settings - Change adapter options.
 - Right-click the Ethernet > Properties > Select Internet Protocol Version 4 (TCP/IPv4) > Properties
-- Select "Use the following IP address" > Select an IP, and keep track of it! (`192.168.20.10`) > Leave everything else as a default > OK
+- Select "Use the following IP address" > Select an IP, and keep track of it! (`192.168.20.10`) (`192.168.40.10`) > Leave everything else as a default > OK
   - Private IP Address Ranges (RFC 1918):
     - 10.0.0.0 - 10.255.255.255 (10.0.0.0/8)
     - 172.16.0.0 - 172.31.255.255 (172.16.0.0/12)
@@ -62,7 +62,7 @@ Here's an example of what each of the machines should look like during your QC!
 - On EllieDefends enter Kali machine IP: `ping 192.168.60.11`
 ![image](https://github.com/user-attachments/assets/62dc184b-b1d4-43c7-b078-20ad54238d45)
   - 🐿️ Ooop!  That does work! (the tutorial has it as being able to work...hmmmm...time to trouble-shoot!
-##### Troubleshooting the Network!
+##### Troubleshooting the Network! (1)
 🐿️ I'm totally using all my Copiloting skills! lol
 Here are some troubleshooting steps to get your Windows VM to ping your Kali Linux VM on an internal network in VirtualBox:
 1. Check Network Adapter Settings: (🐿️ I did this first thing, before diving into Copilot steps)
@@ -84,10 +84,16 @@ Here are some troubleshooting steps to get your Windows VM to ping your Kali Lin
 
 5. Ping Test:
 - On your Windows VM, open Command Prompt and run ping <Kali_IP> (replace <Kali_IP> with the IP address of your Kali Linux VM).
-  -If the ping fails, ensure both VMs have the correct IP configurations and are on the same subnet.
+- If the ping fails, ensure both VMs have the correct IP configurations and are on the same subnet.
+  - I'm pretty sure I did this....  
 
 6. Check Routing Table:
 - On your Windows VM, open Command Prompt and run route print to check the routing table. Ensure there is a route to the internal network.
 - On your Kali Linux VM, run route -n to check the routing table.
+  - Didn't get around to this just yet.
+ 
+##### Troubleshooting the Network! (2)
+OK!  So I started up my VMs (it's a new day btw), and my Kali machine wasn't working...so I opened it to a snapshot...and then I couldn't change the network settings.
+So I downloaded the extension for VirtualBox, and need to restart my computer...(Because...of course.)   
 
 #### VMWare Demo
