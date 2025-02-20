@@ -95,5 +95,6 @@ Here are some troubleshooting steps to get your Windows VM to ping your Kali Lin
 ##### Troubleshooting the Network! (2)
 OK!  So I started up my VMs (it's a new day btw), and my Kali machine wasn't working...so I opened it to a snapshot...and then I couldn't change the network settings.
 So I downloaded the extension for VirtualBox, and need to restart my computer...(Because...of course.)   
+Still not a whole lotta luck.  I'll keep going when I have some more time...likely going to uninstall and re-install all the things (practice is good!)!
 
 #### VMWare Demo
