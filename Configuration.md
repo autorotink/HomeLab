@@ -1,7 +1,7 @@
 ## Steps (cont.)
-### [Build a Basic Home Lab (1/3)](https://youtu.be/5iafC6vj7kM?si=p7a8ZvUKrfc2BrN9)
+### [Build a Basic Home Lab (2/3)](https://youtu.be/5iafC6vj7kM?si=p7a8ZvUKrfc2BrN9)
 #### Introduction
-How to propery configure VMs in VMware and VirtualBox for experimenting with malware and testing our tools.  Typically, we can just trust the default settings, but we should know how to Reduce our Risk ourselves!
+How to properly configure VMs in VMware and VirtualBox for experimenting with malware and testing our tools.  Typically, we can just trust the default settings, but we should know how to Reduce Risk ourselves!
 #### Different Network Options
 Focus on Networking!
 - Open up VirtualBox (if you're anything like me, it's been a few days since I set up the lab!)
@@ -66,5 +66,9 @@ Here's an example of what each of the machines should look like during your QC!
 "Networking Fundamentals"
 - Gotta admit, I've forgotten a lot of these.  Phoned a friend who looked at my setup, and he reminded me all about subnetting! My original IPs were under very different subnets, so of course they wouldn't be able to talk to each other!  
 - So I adjusted my IPs (I already adjusted them in my documentation) and everything pings!
-- _🐿️ The journey to get to the networking issue took a few days.  I used Copilot which told me to double-check my IPs and various configurations, my Kali machine broke a few times, so I learned to clone my Windows machine...I checked, and double-checked everything a few times.  A good learning experience for sure!_
+- _🐿️ The journey to get to the networking issue took a few days.  I used Copilot which told me to double-check my IPs and various configurations, my Kali machine broke a few times, so I learned to clone my Windows machine...I checked, and double-checked everything a few times.  A good learning experience for sure!  In trying to document the process, my Kali machine broke again.  I'm learning to not get attached to these VMs. As far as having to set things up, "Repetition Breeds Mastery"!_
+Here's what I finally got it to look like! (HUZZAH!)
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/7f82cc30-a6d8-447e-999d-90d273165c93" />
+
 #### VMWare Demo
+
